@@ -1,6 +1,17 @@
 import React from "react"
 import styled from 'styled-components'
 
+const StyledDiv = styled.div`
+    text-align: center;
+    border: 1px solid rgb(210, 210, 210);
+    box-shadow: 0px 1px 6px -2px rgb(128, 127, 127);
+    border-radius: 8px;
+    margin: 16px;
+    padding: 16px 8px 12px 16px;
+    background-color: #f3f3f3;
+    color: black;
+    `
+
 
 const Pizza = (props) => {
     const {
@@ -18,6 +29,7 @@ const Pizza = (props) => {
       }
     
     return(
+        <StyledDiv>
     <form onSubmit={onSubmit} id='pizza-form'> 
     <div> 
        <h2>Build Your Own Pizza!</h2> 
@@ -42,7 +54,7 @@ const Pizza = (props) => {
                 onChange={onChange}
                 checked={values.sauce === 'marinara'}
               />
-            </label>
+            </label><br/>
     
             <label>Buffalo Sauce
               <input
@@ -52,7 +64,7 @@ const Pizza = (props) => {
                 onChange={onChange}
                 checked={values.sauce === 'buffalo'}
               />
-            </label>
+            </label><br/>
             <label>BBQ Sauce
               <input
                 type='radio'
@@ -61,9 +73,19 @@ const Pizza = (props) => {
                 onChange={onChange}
                 checked={values.sauce === 'bbq'}
               />
-            </label>
+            </label><br/>
             </div>
-           
+
+            <h3>Gluten Option</h3>
+            <label>Gluten Free Crust 
+              <input
+                type='radio'
+                name='glutenfree'
+                value='Gluten Free'
+                onChange={onChange}
+                checked={values.glutenfree === 'Gluten Free'}
+              />
+            </label><br/>
            
             <h3>Choose Toppings</h3> 
                <label>Pepperoni&nbsp;
@@ -73,7 +95,7 @@ const Pizza = (props) => {
                    name = 'pepperoni' 
                    type = 'checkbox' 
                />
-                </label>
+                </label><br/>
                     <label>Sausage&nbsp;
                 <input 
                    checked = {values.sausage} 
@@ -81,7 +103,7 @@ const Pizza = (props) => {
                    name = 'sausage' 
                    type = 'checkbox' 
                />
-                </label>
+                </label><br/>
                 <label>Chicken&nbsp;
                 <input 
                    checked = {values.chicken} 
@@ -89,7 +111,7 @@ const Pizza = (props) => {
                    name = 'chicken' 
                    type = 'checkbox' 
                />
-                </label>
+                </label><br/>
                 <label>Cheese&nbsp;
                 <input 
                    checked = {values.cheese} 
@@ -97,7 +119,7 @@ const Pizza = (props) => {
                    name = 'cheese' 
                    type = 'checkbox' 
                />
-               </label>
+               </label><br/>
                <label>Pineapple&nbsp;
                 <input 
                    checked = {values.pineapple} 
@@ -105,7 +127,7 @@ const Pizza = (props) => {
                    name = 'pineapple' 
                    type = 'checkbox' 
                />
-                </label>
+                </label><br/>
                 <label>Mushroom&nbsp;
                 <input 
                    checked = {values.mushroom} 
@@ -113,7 +135,7 @@ const Pizza = (props) => {
                    name = 'mushroom' 
                    type = 'checkbox' 
                />
-                </label>  
+                </label>  <br/>
                 <h3>Customer Information</h3>
                    <label> 
               Name&nbsp;  
@@ -145,6 +167,7 @@ const Pizza = (props) => {
            </div> 
     </div> 
     </form> 
+    </StyledDiv>
     );
 }
 

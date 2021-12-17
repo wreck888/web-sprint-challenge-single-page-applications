@@ -6,6 +6,41 @@ import * as yup from 'yup';
 import schema from './validation/schema'
 import axios from 'axios';
 import Confirmation from "./Form";
+import styled from 'styled-components';
+import './App.css'; 
+
+const StyledApp = styled.div`
+    text-align: center;
+    border: 1px solid rgb(210, 210, 210);
+    box-shadow: 0px 1px 6px -2px rgb(128, 127, 127);
+    border-radius: 8px;
+    margin: 16px;
+    padding: 16px 8px 12px 16px;
+    background-color: #2D82B7;
+    
+`
+const StyledDiv = styled.div`
+    text-align: center;
+    border: 1px solid rgb(210, 210, 210);
+    box-shadow: 0px 1px 6px -2px rgb(128, 127, 127);
+    border-radius: 8px;
+    margin: 16px;
+    padding: 16px 8px 12px 16px;
+    background-color: #f3f3f3;
+    color: black;
+    `
+    const StyledNav = styled.div`
+    text-align: center;
+    border: 1px solid rgb(210, 210, 210);
+    box-shadow: 0px 1px 6px -2px rgb(128, 127, 127);
+    border-radius: 8px;
+    margin: 16px;
+    padding: 16px 8px 12px 16px;
+    background-color: #f3f3f3;
+    color: black;
+    `
+
+
 
 const initialFormValues = { 
   name: "", 
@@ -18,6 +53,7 @@ const initialFormValues = {
   mushroom: false,
   sauce: "",
   special: "",
+  glutenfree: "",
 } 
 
 const initialFormErrors = {
@@ -66,6 +102,7 @@ const App = () => {
         toppings: ['pepperoni', 'sausage', 'chicken','cheese', 'pineapple', 'mushroom'].filter(pizza => !!formValues[pizza]),
         sauce: formValues.sauce,
         special: formValues.special.trim(),
+        glutenfree: formValues.glutenfree,
       }
       postNewPizza(newPizza)
       setFormValues(initialFormValues)
@@ -83,15 +120,17 @@ const App = () => {
 
 
   return (
-      <div className='App'>
-      <nav>
+    <StyledApp>
+      <StyledNav className='App'>
+      
+      
         <h1 className='store-header'>BloomTech Eats</h1>
-        <div className='nav-links'>
-          <Link to ='/'>Home</Link>
+        
+          <Link to ='/'>Home</Link>&nbsp;
           <Link>Login</Link>
-        </div>
-      </nav>
-
+        
+     
+      </StyledNav>
       <Switch>
       <Route exact path="/form">
             {pizza.map(confirmation => {
@@ -101,6 +140,7 @@ const App = () => {
             })}
 
           </Route>
+            
                <Route path='/pizza'>
         <Pizza
           values = {formValues} 
@@ -110,13 +150,16 @@ const App = () => {
           errors = {formErrors} 
         /> 
         </Route>
+        
+        <StyledDiv>
         <Route path="/">
           <Home />
         </Route>
+        </StyledDiv>
       </Switch>
-      </div>
+      
 
-
+      </StyledApp>
     
   );
 };

@@ -14,6 +14,7 @@ const schema = yup.object().shape({
     mushroom: yup.boolean(),
     sauce: yup.string(),
     special: yup.string(),
+    glutenfree: yup.string(),
 })
 
 export default schema
