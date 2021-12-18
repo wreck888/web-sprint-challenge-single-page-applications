@@ -97,7 +97,7 @@ const App = () => {
     
     const formSubmit = () => {
       const newPizza = {
-        username: formValues.name.trim(),
+        name: formValues.name,
         size: formValues.size,
         toppings: ['pepperoni', 'sausage', 'chicken','cheese', 'pineapple', 'mushroom'].filter(pizza => !!formValues[pizza]),
         sauce: formValues.sauce,
@@ -116,32 +116,24 @@ const App = () => {
       )
     }, [formValues])
   
-
-
-
   return (
     <StyledApp>
-      <StyledNav className='App'>
-      
-      
-        <h1 className='store-header'>BloomTech Eats</h1>
-        
+      <StyledNav className='App'>      
+              <h1 className='store-header'>BloomTech Eats</h1>        
           <Link to ='/'>Home</Link>&nbsp;
-          <Link>Login</Link>
-        
-     
-      </StyledNav>
-      <Switch>
+          <Link>Login</Link>     
+        </StyledNav>
+
+    <Switch>        
       <Route exact path="/form">
             {pizza.map(confirmation => {
               return (
                 <Confirmation key={confirmation.id} details={confirmation} />
               )
             })}
-
-          </Route>
+      </Route>
             
-               <Route path='/pizza'>
+      <Route path='/pizza'>
         <Pizza
           values = {formValues} 
           change = {inputChange} 
@@ -149,17 +141,16 @@ const App = () => {
           disabled = {disabled} 
           errors = {formErrors} 
         /> 
-        </Route>
-        
-        <StyledDiv>
-        <Route path="/">
-          <Home />
-        </Route>
-        </StyledDiv>
-      </Switch>
-      
+      </Route> 
 
-      </StyledApp>
+    <StyledDiv>
+      <Route path="/">
+          <Home />
+      </Route>
+    </StyledDiv>
+
+    </Switch>   
+    </StyledApp>
     
   );
 };

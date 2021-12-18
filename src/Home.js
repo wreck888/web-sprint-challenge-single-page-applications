@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory, BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import { Link, Route, } from 'react-router-dom';
 import Pizza from './Pizza';
 import styled
 from 'styled-components';

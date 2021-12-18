@@ -19,19 +19,17 @@ function Confirmation({ details }) {
         <StyledDiv className='pizza-container'>
             <h1>Pizza Confirmed!!</h1>
             <h2>Congrats! Pizza is on it's way!</h2>
-            <div className="newpizza">
-                <h2> {details.name}</h2>
+            <div >
+                <p>Name: {details.name}</p>
                 <p>Size: {details.size}</p>               
                 <p>Sauce: {details.sauce}</p>                
                 <p>{details.glutenfree}</p>
-
-                {!!details.toppings && !!details.toppings.length &&
-                    <div>
-                        Toppings:
-                        <ul>
-                            {details.toppings.map((like, idx) => <ul key={idx}>{like}</ul>)}
-                        </ul>
-                    </div>
+                {               
+                <p>Toppings:
+                    <p>
+                        {details.toppings.map((top, idx) => <p key={idx}>{top}</p>)}
+                     </p>
+                </p>
                 }
                 <p>Special Instructions: {details.special}</p>
             </div>
